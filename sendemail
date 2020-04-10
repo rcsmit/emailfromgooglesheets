@@ -1,0 +1,38 @@
+function sendEmail() {
+  // https://www.groovypost.com/howto/google-sheets-send-email-based-on-cell-value/
+  // https://developers.google.com/apps-script/articles/sending_emails
+  
+  // Fetch the email address
+  var sheet = SpreadsheetApp.getActiveSheet();
+  var startRow = 2; // First row of data to process
+  var numRows = 3000; // Number of rows to process
+  
+  // Fetch the range of cells A2:J3000
+  var dataRange = sheet.getRange(startRow, 1, numRows, 10);
+  
+  // Fetch values for each row in the Range.
+  var data = dataRange.getValues();
+  
+  for (var i in data) {
+    var row = data[i];
+    var emailAddress = row[1]; // Second column
+      if (row[1] !== "") {
+        var message =  "Hello " + row[2]  + "\n\n" 
+                        + "Your queue number is " +  row[9] // J colum with the manually added queue numbers
+                        + "The time table will be anounced later." + "\n\n"
+                        + "Please keep an eye on the messages in the Koh Phangan Conscious Community group as situations may change " + "\n\n"
+                        + "Kind regards" + "\n\n"
+                        + "name last name" + "\n\n"
+                        + "This is an automatic generated mail. Please do not reply" + "\n\n";
+                        
+
+        var subject = 'Queue number for ' + row[2]   + "" ;
+       MailApp.sendEmail(emailAddress, subject, message);
+      } 
+    else 
+    ` {
+       // {Browser.msgBox ("empty cell") }
+      }
+   }
+   Browser.msgBox ("DONE");
+}
