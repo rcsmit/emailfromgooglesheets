@@ -2,6 +2,9 @@ function sendEmail() {
   // https://www.groovypost.com/howto/google-sheets-send-email-based-on-cell-value/
   // https://developers.google.com/apps-script/articles/sending_emails
   
+  // Attention: Hasn't been tested with a high number of e-mails
+  
+  
   // Fetch the email address
   var sheet = SpreadsheetApp.getActiveSheet();
   var startRow = 2; // First row of data to process
@@ -27,10 +30,10 @@ function sendEmail() {
                         
 
         var subject = 'Queue number for ' + row[2]   + "" ;
-       MailApp.sendEmail(emailAddress, subject, message);
+        MailApp.sendEmail(emailAddress, subject, message);
       } 
     else 
-    ` {
+      {
        // {Browser.msgBox ("empty cell") }
       }
    }
