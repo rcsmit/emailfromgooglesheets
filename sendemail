@@ -20,7 +20,7 @@ function sendEmail() {
         var message =  "Hello " + row[2]  + "\n\n" 
                         + "Your queue number is " +  row[9] // J colum with the manually added queue numbers
                         + "The time table will be anounced later." + "\n\n"
-                        + "Please keep an eye on the messages in the Koh Phangan Conscious Community group as situations may change " + "\n\n"
+                        + "Please keep an eye on the messages in the Paradise Conscious Community group as situations may change " + "\n\n"
                         + "Kind regards" + "\n\n"
                         + "name last name" + "\n\n"
                         + "This is an automatic generated mail. Please do not reply" + "\n\n";
